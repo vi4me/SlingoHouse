@@ -1,0 +1,18 @@
+<h1>Список товара</h1>
+<table>
+  <tr>
+    <th>Название</th>
+    <th>Описание</th>
+    <th>Цена</th>
+    <th>Фото</th>
+  </tr>
+
+<% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.pr_description %></td>
+      <td><%= product.price %></td>
+      <td><%= image_tag product.picture.url(:medium) %></td>
+    <tr>
+<% end %>
+</table>

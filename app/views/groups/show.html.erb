@@ -1,0 +1,16 @@
+<p>
+  <strong>Каталог:</strong>
+  <%= @group.title %>
+</p>
+ 
+<p>
+  <strong>Описание:</strong>
+  <%= @group.text %>
+</p>
+
+<p>
+  <strong>Фото:</strong>
+  <%= image_tag @group.picture.url(:medium) %>
+</p>
+
+<%= link_to 'Рюкзаки', group_products_path(@group) %>

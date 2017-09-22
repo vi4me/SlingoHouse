@@ -1,0 +1,19 @@
+<h1>Каталог</h1>
+
+
+<table>
+  <tr>
+    <th>Каталог</th>
+    <th>Описание</th>
+    <th>Фото</th>
+  </tr>
+ 
+  <% @groups.each do |group| %>
+    <tr>
+      <td><%= link_to group.title, group_path(group) %></td>
+      <td><%= group.text %></td>
+      <td><%= image_tag group.picture.url(:medium) %></td>
+    </tr>
+  <% end %>
+</table>
+

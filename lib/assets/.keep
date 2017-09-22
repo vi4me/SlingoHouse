@@ -1,0 +1,9 @@
+в шоу
+<h2>Products</h2>
+
+<%= form_for @product do |f| %>
+  <%= f.text_field :price, placeholder: 'Цена' %>
+  <%= f.text_field :name, placeholder: 'Имя' %>
+  <%= f.text_field :pr_description, placeholder: 'Описание' %>
+ 
+<% end %>
