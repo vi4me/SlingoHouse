@@ -56,4 +56,7 @@ gem 'paperclip', '~> 5.0.0'
 gem 'devise'
 gem 'activeadmin'
 gem 'kaminari'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'thor', '0.19.4'
 

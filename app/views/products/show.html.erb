@@ -1,11 +1,16 @@
 <p>
-  <strong>Каталог:</strong>
-  <%= @page_title = @group.title %>
+  <strong>Название:</strong>
+  <%= @page_title = @product.name %>
+</p>
+
+<p>
+  <strong>Цена:</strong>
+  <%= @product.price %>
 </p>
  
 <p>
   <strong>Описание:</strong>
-  <%= @group.text %>
+  <%= @product.pr_description %>
 </p>
 
 <p>
@@ -21,7 +26,7 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <% @group.images.each_with_index do |image, index| %>
+    <% @product.images.each_with_index do |image, index| %>
       <div class="item <%= 'active' if index == 0 %>">
         <%= image_tag(image.file_url, class: 'img-responsive') %>
         <div class="carousel-caption">
@@ -41,5 +46,3 @@
   </a>
 </div>
 </p>
-
-<%= link_to 'Рюкзаки', group_products_path(@group) %>

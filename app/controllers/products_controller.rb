@@ -16,12 +16,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new
-    @product.price = params[:product][:price]
-    @product.name = params[:product][:name]
-    @product.pr_description = params[:product][:pr_description]
-    @product.picture = params[:product][:picture]
-    @product.save
+    @product = Product.create(product_params)
   end
 
   def edit
@@ -46,7 +41,7 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:price, :name, :pr_description, :picture)
+      params.require(:product).permit(:price, :name, :pr_description, images_attributes: [:id, :file, :_destroy])
     end
 end
 

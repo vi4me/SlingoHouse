@@ -17,16 +17,12 @@ class GroupsController < ApplicationController
   end
  
   def create
-    @group = Group.new(group_params)
-    @group.title = params[:group][:title]
-    @group.text = params[:group][:text]
-    @group.picture = params[:group][:picture]
-    @group.save
+    @group = Group.create(group_params)
   end
 
   def update
     @group = Group.find(params[:id])
-    @group.update(group_params)
+    @group = @group.update(group_params)
   end
 
   def destroy
@@ -36,6 +32,6 @@ end
 
  private
   def group_params
-    params.require(:group).permit(:title, :text, :picture)
+    params.require(:group).permit(:title, :text, images_attributes: [:id, :file, :_destroy])
   end
 end

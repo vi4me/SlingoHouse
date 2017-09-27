@@ -9,10 +9,13 @@
 
 <% @products.each do |product| %>
     <tr>
-      <td><%= product.name %></td>
+      <td><%= link_to product.name, group_product_path(@group, product)%></td>
       <td><%= product.pr_description %></td>
       <td><%= product.price %></td>
-      <td><%= image_tag product.picture.url(:medium) %></td>
+      <td><% product.images.each do |image| %>
+        <%= image_tag(image.file_url(:thumb)) %></td>
+      <% end %>
     <tr>
 <% end %>
 </table>
+

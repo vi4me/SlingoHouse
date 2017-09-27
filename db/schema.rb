@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170624195515) do
+ActiveRecord::Schema.define(version: 20170921031714) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -46,12 +46,16 @@ ActiveRecord::Schema.define(version: 20170624195515) do
   create_table "groups", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "file"
+    t.integer  "imagable_id"
+    t.string   "imagable_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -59,12 +63,8 @@ ActiveRecord::Schema.define(version: 20170624195515) do
     t.string   "name"
     t.string   "pr_description"
     t.integer  "group_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.index ["group_id"], name: "index_products_on_group_id"
   end
 

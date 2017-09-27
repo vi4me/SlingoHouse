@@ -12,7 +12,9 @@
     <tr>
       <td><%= link_to group.title, group_path(group) %></td>
       <td><%= group.text %></td>
-      <td><%= image_tag group.picture.url(:medium) %></td>
+      <td><% group.images.each do |image| %>
+        <%= image_tag(image.file_url(:thumb)) %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>

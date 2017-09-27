@@ -1,5 +1,6 @@
 module Api
   class GroupsController < ApplicationController
+  	
     def index
       @groups = Group.page(params[:page]).per(params[:per])
     end
