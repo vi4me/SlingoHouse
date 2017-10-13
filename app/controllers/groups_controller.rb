@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   
   def index
-  	 @groups = Group.all
+  	 @groups = Group.order('created_at DESC')
   end
 
   def show

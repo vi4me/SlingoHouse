@@ -1,0 +1,9 @@
+<h1>Инструкции</h1>
+
+<% @instructions.each do |instruction| %>
+    <h3><%= instruction.title %></h3>
+    <%= instruction.text %>
+    <% instruction.images.each do |image| %>
+      <%= image_tag(image.file_url(:thumb)) %>
+    <% end %>
+<% end %>

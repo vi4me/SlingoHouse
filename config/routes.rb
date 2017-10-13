@@ -9,12 +9,17 @@ Rails.application.routes.draw do
   	resources :products
   end
 
-  resources :images
+  resources :all_products
+  resources :instructions
+  resources :reports
 
   namespace :api, defaults: { format: :json } do
   	resources :groups do
       resources :products
     end
+    resources :all_products
+    resources :instructions
+    resources :reports
   end
   
 

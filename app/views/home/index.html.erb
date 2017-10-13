@@ -1,1 +1,32 @@
 <h1>Добро пожаловать на сайт "Рюкзаки"</h1>
+
+<h2>Новости</h2>
+
+<% @reports.each do |report| %>
+    <h3><%= report.title %></h3>
+    <%= report.text %>
+    <% report.images.each do |image| %>
+      <%= image_tag(image.file_url(:thumb)) %>
+    <% end %>
+<% end %>
+
+<h1>Список товара</h1>
+<table>
+  <tr>
+    <th>Название</th>
+    <th>Описание</th>
+    <th>Цена</th>
+    <th>Фото</th>
+  </tr>
+
+<% @products.each do |product| %>
+    <tr>
+      <td><%= product.name%></td>
+      <td><%= product.pr_description %></td>
+      <td><%= product.price %></td>
+      <td><% product.images.each do |image| %>
+        <%= image_tag(image.file_url(:thumb)) %></td>
+      <% end %>
+    <tr>
+<% end %>
+</table>

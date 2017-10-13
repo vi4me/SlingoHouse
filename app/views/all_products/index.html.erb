@@ -1,0 +1,27 @@
+<%= form_tag all_products_path, method: :get do  %>
+  <%= text_field_tag 'q[name_cont]', params[:q]&.[](:name_cont), placeholder: 'Поиск по товару' %>
+  <%= text_field_tag 'q[price_qteq]', params[:q]&.[](:price_qteq), placeholder: 'Минимальная цена' %>
+  <%= text_field_tag 'q[price_lteq]', params[:q]&.[](:price_lteq), placeholder: 'Максимальная цена' %>
+  
+  <%= submit_tag 'Поиск', class: 'btn btn-default' %>
+<% end %>
+<h1>Список товара</h1>
+<table>
+  <tr>
+    <th>Название</th>
+    <th>Описание</th>
+    <th>Цена</th>
+    <th>Фото</th>
+  </tr>
+
+<% @products.each do |product| %>
+    <tr>
+      <td><%= product.name%></td>
+      <td><%= product.pr_description %></td>
+      <td><%= product.price %></td>
+      <td><% product.images.each do |image| %>
+        <%= image_tag(image.file_url(:thumb)) %></td>
+      <% end %>
+    <tr>
+<% end %>
+</table>

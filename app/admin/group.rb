@@ -1,5 +1,7 @@
 ActiveAdmin.register Group do
-  permit_params :title, :text, {images: []}, images_attributes: [:id, :file, :_destroy]
+
+  permit_params :title, :text, {images: []}, 
+                images_attributes: [:id, :file, :_destroy]
 
   index do
     selectable_column
@@ -24,7 +26,7 @@ ActiveAdmin.register Group do
         if p.object.new_record?
           p.input :file
             else
-              p.input :_destroy, as: :boolean, required: :false, label: 'Remove image'
+              p.input :_destroy, as: :boolean, required: :false, label: 'Удалить фото'
               p.input :file, :as => :file, required: false, :hint => p.template.image_tag(p.object.file.url(:thumb))
             end
         end
